@@ -336,7 +336,7 @@ namespace JiraService.Controllers
             public object aggregatetimeestimate { get; set; }
             public string summary { get; set; }
             public Creator creator { get; set; }
-            public List<object> subtasks { get; set; }
+            public List<JiraTicket> subtasks { get; set; }
             public Reporter reporter { get; set; }
             public object customfield_10000 { get; set; }
             public Aggregateprogress aggregateprogress { get; set; }
