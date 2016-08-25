@@ -27,7 +27,8 @@
                     <p>{{ task.key }}</p>
                     <p>{{ task.summary }}</p>
                     <p>{{ task.issuetype }}</p>
-                    <table class="table" style="background-color:inherit">
+                    <p>SP: {{ task.storyPoints }}</p>
+                    <table ng-if="task.subtasks.length" class="table" style="background-color:inherit">
                         <tbody>
                             <tr ng-repeat="st in task.subtasks">
                                <td>
@@ -60,7 +61,7 @@ app.controller('jiraCtrl', function($scope, $http) {
    // $scope.bgColor = "background-color': '" + getRandomColor() + "'";
     $scope.status = true;
     $scope.getIssues = function () {
-        $http.get("/JiraService/api/jira/gettickets?name=" + $scope.username + "&password=" + $scope.password + "&jql=" + $scope.jql)
+        $http.get("/api/jira/gettickets?name=" + $scope.username + "&password=" + $scope.password + "&jql=" + $scope.jql)
        .success(function (response) { $scope.tasks = response; $scope.status = false; }).error(function (response) { alert("error") });
     }
     $scope.displayForm = function () {

@@ -17,8 +17,8 @@ namespace JiraService.Controllers
                 var res = JiraMethods.deserializeFilterResults(name, password, jql);
                 var response = from jt in res.issues
                                where jt.fields.issuetype.name != "Sub-Task"
-                               select new { jt.key, issuetype = jt.fields.issuetype.name, jt.fields.summary, storyPoints = jt.fields.customfield_10008,
-                                   subtasks =  jt.fields.subtasks.Select(st => new {st.key, st.fields.issuetype.name, st.fields.summary, storyPoints = st.fields.customfield_10008 }) };
+                               select new { jt.key, issuetype = jt.fields.issuetype.name, jt.fields.summary, storyPoints = jt.fields.customfield_10002,
+                                   subtasks =  jt.fields.subtasks.Select(st => new {st.key, st.fields.issuetype.name, st.fields.summary, storyPoints = st.fields.customfield_10002 }) };
                
                 return response;
             }

@@ -47,7 +47,7 @@ namespace JiraService.Controllers
         public static FilterResults deserializeFilterResults(string username, string password, string jql)
         {
             string resultJson;
-            string url = "http://dev-aus-jira-01.swdev.local/rest/api/2/search?jql=" + jql + "&os_username=" + username + "&os_password=" + password;
+            string url = "https://jira.kmiservicehub.com/rest/api/2/search?jql=" + jql + "&os_username=" + username + "&os_password=" + password;
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
 
