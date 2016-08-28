@@ -10,7 +10,7 @@
         <button type="button" class="btn btn-primary" ng-click="getIssues()">Submit</button>
     </form>
 
-    <table class="table table-striped" ng-hide="status">
+    <table class="table table-striped" ng-hide="status" id="jiratasks">
         @*<thead>
             <tr>
                 <th>Jira Tasks</th>
@@ -48,6 +48,7 @@
         </tbody>
     </table>
     <button type="button" class="btn btn-default" ng-click="displayForm()" ng-hide="status">Try Again</button>
+    <button type="button" class="btn btn-default" onclick="$('#jiratasks').tableExport({ type: 'pdf', pdfFontSize: '7', escape: 'false' });" ng-hide="status">Export To PDF</button>
 </div>
 
 <script>
